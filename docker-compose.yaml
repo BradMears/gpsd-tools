@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  gps-server:
+    image: bradmears/gpsd-tools:latest
+    hostname: gps-server
+    privileged: true
+    build: .
+    devices:
+      - '/dev/ttyACM0:/dev/ttyACM0'
+    network_mode: host
+
+  gps-client:
+    image: bradmears/gpsd-tools:latest
+    hostname: gps-client
+    build: .
+    network_mode: host
+
