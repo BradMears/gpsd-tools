@@ -1,4 +1,5 @@
 #!/bin/bash
+# Start a shell in a container. Defaults to the gps-server container
 
-export GID=$(id -g)
-docker exec -it gps-play-gps-client-run-3092b788e138 ash
+export CONTAINER=${1:-gps-server}
+docker exec -it ${CONTAINER} ash
